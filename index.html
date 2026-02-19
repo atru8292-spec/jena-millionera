@@ -380,131 +380,25 @@
         font-weight: 400;
       }
 
-      /* АВТОР */
-      .author-section {
-        background: linear-gradient(135deg, #1a1a1a 0%, #2d2417 100%);
-        padding: 80px 20px;
-      }
-      .author-container {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        gap: 60px;
-        align-items: center;
-      }
-      .author-photo-wrap {
-        position: relative;
-      }
-      .author-photo-wrap::after {
-        content: "";
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        right: -20px;
-        bottom: -20px;
-        border: 1px solid rgba(201, 168, 76, 0.25);
-        z-index: 0;
-        pointer-events: none;
-      }
-      .author-photo {
-        width: 100%;
-        aspect-ratio: 3/4;
-        object-fit: cover;
-        object-position: top center;
-        position: relative;
-        z-index: 1;
-        display: block;
-        filter: grayscale(15%) contrast(1.05);
-      }
-      .author-photo-badge {
-        position: absolute;
-        bottom: -15px;
-        right: 25px;
-        z-index: 2;
-        background: var(--gold);
-        color: var(--white);
-        padding: 10px 16px;
-        font-size: 0.62rem;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        font-weight: 500;
-      }
-      .author-label {
-        color: var(--gold);
-        font-size: 0.68rem;
-        letter-spacing: 4px;
-        text-transform: uppercase;
-        margin-bottom: 12px;
-        font-weight: 500;
-      }
-      .author-name {
-        font-family: "Cormorant Garamond", serif;
-        font-size: clamp(2.4rem, 5vw, 4rem);
-        color: var(--white);
-        font-weight: 400;
-        line-height: 1.05;
-        margin-bottom: 10px;
-      }
-      .author-role {
-        font-size: 0.95rem;
-        color: var(--gold);
-        font-weight: 400;
-        margin-bottom: 22px;
-        line-height: 1.5;
-      }
-      .author-stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-        padding: 22px 0;
-        margin-bottom: 30px;
-        border-top: 1px solid rgba(201, 168, 76, 0.2);
-        border-bottom: 1px solid rgba(201, 168, 76, 0.2);
-      }
-      .stat-num {
-        font-family: "Cormorant Garamond", serif;
-        display: block;
-        font-size: 2.4rem;
-        color: var(--gold);
-        font-weight: 600;
-        line-height: 1;
-        margin-bottom: 5px;
-        text-align: center;
-      }
-      .stat-label {
-        display: block;
-        font-size: 0.62rem;
-        color: rgba(255, 255, 255, 0.45);
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        text-align: center;
-      }
-      .author-quotes {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-      }
-      .author-quote {
-        display: flex;
-        gap: 14px;
-        align-items: flex-start;
-        font-size: 0.84rem;
-        color: rgba(255, 255, 255, 0.75);
-        line-height: 1.8;
-        font-weight: 400;
-      }
-      .quote-bar {
-        width: 2px;
-        min-height: 40px;
-        background: var(--gold);
-        flex-shrink: 0;
-        margin-top: 2px;
-      }
-      .author-quote strong {
-        color: var(--gold-light);
-        font-weight: 500;
-      }
+     /* АВТОР */
+    .author-section{background:linear-gradient(135deg,#1a1a1a 0%,#2d2417 100%);padding:80px 20px}
+    .author-container{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr;gap:60px;align-items:center}
+    .author-photo-wrap{position:relative}
+    .author-photo-wrap::after{content:"";position:absolute;top:20px;left:20px;right:-20px;bottom:-20px;border:1px solid rgba(201,168,76,0.25);z-index:0;pointer-events:none}
+    .author-photo{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;position:relative;z-index:1;display:block;filter:grayscale(15%) contrast(1.05)}
+    .author-photo-badge{position:absolute;bottom:-15px;right:25px;z-index:2;background:var(--gold);color:var(--white);padding:10px 16px;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;font-weight:500}
+    .author-label{color:var(--gold);font-size:0.68rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:12px;font-weight:500}
+    .author-name{font-family:"Cormorant Garamond",serif;font-size:clamp(2.4rem,5vw,4rem);color:var(--white);font-weight:400;line-height:1.05;margin-bottom:10px}
+    .author-role{font-size:1rem;color:var(--gold-light);margin-bottom:28px;line-height:1.6}
+    .author-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;padding:22px 0;margin-bottom:30px;border-top:1px solid rgba(201,168,76,0.2);border-bottom:1px solid rgba(201,168,76,0.2)}
+    .stat-num{font-family:"Cormorant Garamond",serif;display:block;font-size:2.4rem;color:var(--gold);font-weight:600;line-height:1;margin-bottom:5px;text-align:center}
+    .stat-label{display:block;font-size:0.62rem;color:rgba(255,255,255,0.45);letter-spacing:1px;text-transform:uppercase;text-align:center}
+    .author-key-quote{background:rgba(201,168,76,0.08);border-left:3px solid var(--gold);padding:20px 24px;font-size:1rem;color:rgba(255,255,255,0.85);line-height:1.8;font-style:italic;margin-bottom:20px}
+    .author-key-quote strong{color:var(--gold-light);font-style:normal}
+    .author-tezis{display:flex;flex-direction:column;gap:10px}
+    .author-tezis-item{display:flex;gap:10px;align-items:flex-start;font-size:0.83rem;color:rgba(255,255,255,0.7);line-height:1.6}
+    .author-tezis-item::before{content:"";width:6px;height:6px;border:1px solid var(--gold);transform:rotate(45deg);flex-shrink:0;margin-top:5px}
+
       /* ДО / ПОСЛЕ */
       .before-after-section {
         padding: 80px 20px;
@@ -1303,7 +1197,7 @@
     max-width: 700px;
     width: 100%;
     /* Сделали более глубокий черный (0.8), теперь текст будет читаться идеально */
-    background: rgba(0, 0, 0, 0.2); 
+    background: rgba(0, 0, 0, 0.05); 
     
     /* Оставили легкий блюр для эффекта глубины */
     backdrop-filter: blur(4px);
@@ -1686,7 +1580,7 @@
         <div class="hero-badge">✦ Программа трансформации ✦</div>
         <h1>Стань той,<span>которую выбирает миллионер</span></h1>
         <p class="hero-subtitle">
-          Три ступени глубинной трансформации — от страхов прошлого к счастливой
+          Три ступени глубинной нейротрансформации — от страхов прошлого к счастливой
           жизни рядом с сильным и состоятельным мужчиной
         </p>
         <div class="hero-cta">
@@ -1839,82 +1733,46 @@
     
       <div class="divider"><span class="divider-icon">♛</span></div>
     
-      <!-- 5. АВТОР — экспертность и доверие -->
-      <section class="author-section" id="author">
-        <div class="author-container">
-          <div class="author-photo-wrap fade-in">
-            <img
-              src="https://i.ibb.co/nsRGz6sT/IMG-5902-resized-1.jpg"
-              alt="Юлия Люмен"
-              class="author-photo"
-            />
-            <div class="author-photo-badge">Нейропсихолог</div>
+      <!-- АВТОР -->
+  <section class="author-section" id="author">
+    <div class="author-container">
+      <div class="author-photo-wrap fade-in">
+        <img src="https://i.ibb.co/nsRGz6sT/IMG-5902-resized-1.jpg" alt="Юлия Люмен" class="author-photo" />
+        <div class="author-photo-badge">Нейропсихолог</div>
+      </div>
+      <div class="author-content fade-in">
+        <div class="author-label">Автор программы</div>
+        <h2 class="author-name">Юлия<br>Люмен</h2>
+        <div class="author-role">
+          Нейропсихолог. Эксперт по психологии отношений с мужчинами высокого уровня.
+        </div>
+        <div class="author-stats">
+          <div class="stat-item">
+            <span class="stat-num">20+</span>
+            <span class="stat-label">лет в бизнесе</span>
           </div>
-          <div class="author-content fade-in">
-            <div class="author-label">✦ Автор программы ✦</div>
-            <h2 class="author-name">Юлия<br />Люмен</h2>
-            <div class="author-role">
-              Эксперт по психологии отношений с мужчинами высокого уровня. Я знаю,
-              чего хотят миллионеры в женщине — и как стать именно той, которую
-              они выбирают.
-            </div>
-            <div class="author-stats">
-              <div class="stat-item">
-                <span class="stat-num">20+</span>
-                <span class="stat-label">лет в бизнесе</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-num">5000+</span>
-                <span class="stat-label">часов в практике</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-num">12</span>
-                <span class="stat-label">стран работы</span>
-              </div>
-            </div>
-            <div class="author-quotes">
-              <div class="author-quote">
-                <div class="quote-bar"></div>
-                <p>
-                  За моими плечами <strong>20 лет в собственном бизнесе</strong>.
-                  Всю жизнь я вращаюсь в состоятельных слоях общества, поэтому
-                  знаю законы и правила этих людей изнутри.
-                </p>
-              </div>
-              <div class="author-quote">
-                <div class="quote-bar"></div>
-                <p>
-                  Я работаю с женщинами,
-                  <strong>которые уже многого достигли сами</strong> — но в личной
-                  жизни снова и снова выбирают не тех. Мы разбираемся почему — и
-                  меняем это на уровне психики, а не советов «люби себя».
-                </p>
-              </div>
-              <div class="author-quote">
-                <div class="quote-bar"></div>
-                <p>
-                  Мужчины высокого уровня
-                  <strong>мгновенно считывают женщину</strong> — её состояние,
-                  уверенность, ценности. Моя работа — сделать так, чтобы увиденное
-                  в тебе
-                  <strong>заставило их выбрать тебя и остаться навсегда.</strong>
-                </p>
-              </div>
-              <div class="author-quote">
-                <div class="quote-bar"></div>
-                <p>
-                  Нейропсихология работает
-                  <strong>на уровне нейронных связей</strong> — меняет не
-                  поведение, а саму структуру реакций. После работы со мной ты не
-                  «стараешься» вести себя иначе — ты просто становишься другой.
-                  Той, которую выбирают.
-                </p>
-              </div>
-            </div>
+          <div class="stat-item">
+            <span class="stat-num">5000+</span>
+            <span class="stat-label">часов практики</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">12</span>
+            <span class="stat-label">стран работы</span>
           </div>
         </div>
-      </section>
-    
+        <div class="author-key-quote">
+          После работы со мной ты не <strong>«стараешься» вести себя иначе</strong> —
+          ты просто становишься другой. На уровне нейронных связей, а не советов «люби себя».
+          <strong>Той, которую выбирают и остаются навсегда.</strong>
+        </div>
+        <div class="author-tezis">
+          <div class="author-tezis-item">За моими плечами 20 лет в собственном бизнесе. Всю жизнь я вращаюсь в состоятельных слоях общества, поэтому знаю законы и правила этих людей изнутри</div>
+          <div class="author-tezis-item">Работаю с женщинами, которые многого достигли сами, но в личной жизни выбирают не тех</div>
+          <div class="author-tezis-item">Мужчины высокого уровня за секунды считывают состояние женщины. Моя задача — сделать так, чтобы он увидел в тебе ту единственную.</div>
+        </div>
+      </div>
+    </div>
+  </section>
       <!-- 7. СТУПЕНИ ПРОГРАММЫ — продукт -->
       <section class="steps-section" id="steps">
         <div class="steps-container">
