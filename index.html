@@ -79,20 +79,20 @@
         color: var(--gold);
       }
 
-     /* HERO — ОТРЕДАКТИРОВАНО ДЛЯ ЧИТАЕМОСТИ */
+     /* HERO — ПАРАЛЛАКС УДАЛЕН */
      .hero {
         min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 120px 20px 80px; /* Немного изменил отступы */
-        /* Усилил затемнение (0.5 вместо 0.4 и 0.8 вместо 0.7) */
+        padding: 120px 20px 80px;
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), 
                     url('https://i.ibb.co/GfBX6cZS/Gemini-Generated-Image-td9yaktd9yaktd9y.png');
         background-size: cover;
-        background-position: center 25%;
-        background-attachment: fixed;
+        /* Важно: ставим scroll вместо fixed и центрируем */
+        background-position: center; 
+        background-attachment: scroll; 
         position: relative;
         overflow: hidden;
       }
@@ -293,7 +293,7 @@
         font-family: "Cormorant Garamond", serif;
       }
 
-     /* ДЛЯ КОГО — Лаконичный единый блок */
+     /* ДЛЯ КОГО — Исправлено: параллакс отключен для стабильности на мобильных */
 .for-whom {
   padding: 120px 20px;
   width: 100%;
@@ -306,7 +306,8 @@
     url('https://i.ibb.co/275bryKs/2026-02-19-T180119-461.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  /* Заменили fixed на scroll */
+  background-attachment: scroll; 
   color: var(--white);
   text-align: center;
 }
@@ -332,11 +333,11 @@
 
 .for-whom-intro {
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(1.3rem, 2.5vw, 1.8rem); /* Адаптивный размер */
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
   color: rgba(255, 255, 255, 0.95);
   font-style: italic;
   line-height: 1.7;
-  max-width: 750px; /* Сузили для красоты */
+  max-width: 750px;
   margin: 0 auto;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
@@ -1285,74 +1286,98 @@
         font-weight: 400;
       }
 
-    /* ПОСЛЕДНИЙ ШАНС — ОБНОВЛЕННЫЕ СТИЛИ */
-    .last-chance {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), 
-                    url('https://i.ibb.co/DHSLVMkw/image.jpg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        padding: 100px 20px;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-      }
+    /* ПОСЛЕДНИЙ ШАНС — ОБНОВЛЕННЫЕ СТИЛИ (БЕЗ ПАРАЛЛАКСА) */
+.last-chance {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), 
+                url('https://i.ibb.co/DHSLVMkw/image.jpg');
+    background-size: cover;
+    background-position: center;
+    /* Заменили fixed на scroll для работы на смартфонах */
+    background-attachment: scroll; 
+    padding: 100px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.last-chance-inner {
+    max-width: 700px;
+    width: 100%;
+    /* Сделали более глубокий черный (0.8), теперь текст будет читаться идеально */
+    background: rgba(0, 0, 0, 0.2); 
+    
+    /* Оставили легкий блюр для эффекта глубины */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    
+    padding: 60px 40px;
+    
+    /* Золотистая рамка стала чуть заметнее */
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    
+    /* Тень под самой плашкой, чтобы она "парила" над фоном */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    
+    position: relative;
+    z-index: 2;
+}
 
-      .last-chance-inner {
-        max-width: 700px;
-        width: 100%;
-        background: rgba(10, 10, 10, 0.7);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        padding: 60px 40px;
-        border: 1px solid rgba(201, 168, 76, 0.2);
-      }
+.last-chance h2 {
+    /* Вернул элегантный шрифт для дорогого вида */
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--white);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    /* Добавил тень самим буквам для четкости */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
 
-      .last-chance h2 {
-        font-family: "Cormorant Garamond", serif;
-        font-size: clamp(1.8rem, 4vw, 2.8rem);
-        color: var(--white);
-        font-weight: 400;
-        line-height: 1.2;
-        margin-bottom: 30px;
-      }
+.last-chance h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--white);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
 
-      /* Стили для сцены (курсивный элегантный текст) */
-      .last-chance-scene p {
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 1.1rem;
-        line-height: 1.8;
-        font-family: "Cormorant Garamond", serif;
-        font-style: italic;
-        margin-bottom: 30px;
-      }
+/* Стили для сцены (курсивный элегантный текст) */
+.last-chance-scene p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    margin-bottom: 30px;
+}
 
-      /* РУКОПИСНЫЕ АКЦЕНТЫ (только внутри span) */
-      .last-chance h2 span, 
-      .last-chance-scene p span,
-      .last-chance-note span {
-        font-family: 'Alex Brush', cursive; /* Проверь, что шрифт подключен в head */
-        color: var(--gold);
-        font-style: normal;
-        font-size: 1.4em;
-        line-height: 0;
-        vertical-align: middle;
-      }
+/* РУКОПИСНЫЕ АКЦЕНТЫ */
+.last-chance h2 span, 
+.last-chance-scene p span,
+.last-chance-note span {
+    font-family: 'Alex Brush', cursive; 
+    color: var(--gold);
+    font-style: normal;
+    font-size: 1.4em;
+    line-height: 0;
+    vertical-align: middle;
+}
 
-      /* Блок с датами и инфо */
-      .last-chance-note {
-        color: rgba(255, 255, 255, 0.6);
-        font-size: 0.9rem;
-        line-height: 1.6;
-        margin-bottom: 35px;
-        border-top: 1px solid rgba(201, 168, 76, 0.2);
-        padding-top: 25px;
-      }
+/* Блок с датами и инфо */
+.last-chance-note {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    border-top: 1px solid rgba(201, 168, 76, 0.2);
+    padding-top: 25px;
+}
 
-      .last-chance-note strong {
-        color: var(--gold-light);
-        font-weight: 500;
-      }
+.last-chance-note strong {
+    color: var(--gold-light);
+    font-weight: 500;
+}
       .price-old-small {
   font-size: 0.8rem;
   text-decoration: line-through;
