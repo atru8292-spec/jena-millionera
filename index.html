@@ -14,49 +14,7 @@
         padding: 0;
         box-sizing: border-box;
       }
-      /* Пояснение к ступеням */
-      .steps-intro-box {
-        max-width: 750px;
-        margin: 0 auto 60px;
-        padding: 28px 35px;
-        background: rgba(201, 168, 76, 0.06);
-        border: 1px solid rgba(201, 168, 76, 0.2);
-        text-align: center;
-        position: relative;
-      }
-      .steps-intro-box::before {
-        content: "♛";
-        position: absolute;
-        top: -12px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--dark);
-        padding: 0 15px;
-        color: var(--gold);
-        font-size: 1rem;
-      }
-      .steps-intro-text {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 1.15rem;
-        color: rgba(255, 255, 255, 0.8);
-        line-height: 1.8;
-        font-style: italic;
-      }
-      .steps-intro-text strong {
-        color: var(--gold);
-        font-style: normal;
-        font-weight: 600;
-      }
 
-      @media (max-width: 768px) {
-        .steps-intro-box {
-          padding: 22px 18px;
-          margin: 0 auto 40px;
-        }
-        .steps-intro-text {
-          font-size: 1rem;
-        }
-      }
       :root {
         --gold: #c9a84c;
         --gold-light: #e8d5a3;
@@ -66,19 +24,23 @@
         --text: #3d3d3d;
         --white: #ffffff;
       }
+
       body {
         font-family: "Montserrat", sans-serif;
         background-color: var(--cream);
         color: var(--text);
         overflow-x: hidden;
-        font-weight: 300;
+        font-weight: 400;
       }
+
       h1,
       h2,
       h3,
       h4 {
         font-family: "Cormorant Garamond", serif;
       }
+
+      /* NAV */
       nav {
         position: fixed;
         top: 0;
@@ -116,80 +78,104 @@
       .nav-links a:hover {
         color: var(--gold);
       }
-      .hero {
+
+     /* HERO — ОТРЕДАКТИРОВАНО ДЛЯ ЧИТАЕМОСТИ */
+     .hero {
         min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 160px 20px 60px;
-        background: linear-gradient(
-          135deg,
-          #1a1a1a 0%,
-          #2d2417 50%,
-          #1a1a1a 100%
-        );
+        padding: 120px 20px 80px; /* Немного изменил отступы */
+        /* Усилил затемнение (0.5 вместо 0.4 и 0.8 вместо 0.7) */
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), 
+                    url('https://i.ibb.co/GfBX6cZS/Gemini-Generated-Image-td9yaktd9yaktd9y.png');
+        background-size: cover;
+        background-position: center 25%;
+        background-attachment: fixed;
         position: relative;
         overflow: hidden;
       }
+
       .hero::before {
         content: "";
         position: absolute;
         inset: 0;
+        /* Виньетка по краям для концентрации внимания на центре */
         background: radial-gradient(
-            ellipse at 20% 50%,
-            rgba(201, 168, 76, 0.15) 0%,
-            transparent 60%
-          ),
-          radial-gradient(
-            ellipse at 80% 50%,
-            rgba(201, 168, 76, 0.1) 0%,
-            transparent 60%
+            circle at center,
+            transparent 0%,
+            rgba(0, 0, 0, 0.4) 100%
           );
       }
+
       .hero-content {
         position: relative;
-        z-index: 1;
+        z-index: 2; /* Поднял чуть выше */
         max-width: 900px;
       }
+
       .hero-badge {
         display: inline-block;
         border: 1px solid var(--gold);
-        color: var(--gold);
-        padding: 5px 14px;
+        color: var(--gold-light); /* Сделал чуть светлее для контраста */
+        padding: 6px 18px;
         font-family: "Cormorant Garamond", serif;
-        font-size: 0.7rem;
-        letter-spacing: 2px;
+        font-size: 0.75rem;
+        letter-spacing: 3px;
         text-transform: uppercase;
-        margin-bottom: 18px;
+        margin-bottom: 25px;
+        background: rgba(0, 0, 0, 0.6); /* Более плотная подложка */
+        backdrop-filter: blur(4px); /* Эффект матового стекла */
       }
+
       .hero h1 {
-        font-size: clamp(2.4rem, 7vw, 6rem);
+        font-size: clamp(2.6rem, 8vw, 6rem); /* Чуть увеличил минимальный размер */
         color: var(--white);
-        line-height: 1.1;
-        margin-bottom: 20px;
+        line-height: 1.05;
+        margin-bottom: 25px;
         font-weight: 400;
+        /* Многослойная тень для идеального чтения на любом фоне */
+        text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.5);
       }
+
       .hero h1 span {
         color: var(--gold);
         display: block;
         font-style: italic;
         font-weight: 600;
+        margin-top: 5px;
       }
+
       .hero-subtitle {
-        font-size: 0.88rem;
-        color: rgba(255, 255, 255, 0.75);
-        line-height: 1.9;
-        max-width: 580px;
-        margin: 0 auto 45px;
-        font-weight: 300;
+        font-size: clamp(0.9rem, 2vw, 1.1rem); /* Сделал текст чуть крупнее */
+        color: rgba(255, 255, 255, 0.95);
+        line-height: 1.6;
+        max-width: 600px;
+        margin: 0 auto 50px;
+        font-weight: 400; /* Чуть жирнее шрифт для чёткости */
+        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
       }
+
       .hero-cta {
         display: flex;
-        gap: 15px;
+        gap: 20px;
         justify-content: center;
         flex-wrap: wrap;
       }
+
+      /* Стилизация кнопок в Hero для симметрии */
+      .hero-cta a {
+        min-width: 220px; /* Одинаковая ширина кнопок */
+        padding: 18px 30px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        transition: all 0.4s ease;
+      }
+
+      /* КНОПКИ */
       .btn-primary {
         background: linear-gradient(
           135deg,
@@ -251,6 +237,8 @@
         transform: translateY(-3px);
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
       }
+
+      /* COMMON */
       .section-label {
         text-align: center;
         color: var(--gold);
@@ -276,7 +264,7 @@
         line-height: 1.9;
         max-width: 680px;
         margin: 0 auto 50px;
-        font-weight: 300;
+        font-weight: 400;
       }
       .divider {
         display: flex;
@@ -304,21 +292,54 @@
         font-size: 1.1rem;
         font-family: "Cormorant Garamond", serif;
       }
-      .for-whom {
-        padding: 70px 20px;
-        max-width: 1100px;
-        margin: 0 auto;
-      }
-      .for-whom-intro {
-        text-align: center;
-        font-family: "Cormorant Garamond", serif;
-        font-size: 1.2rem;
-        color: var(--gold-dark);
-        font-style: italic;
-        margin: 0 auto 40px;
-        line-height: 1.8;
-        max-width: 700px;
-      }
+
+     /* ДЛЯ КОГО — Лаконичный единый блок */
+.for-whom {
+  padding: 120px 20px;
+  width: 100%;
+  margin: 0 auto;
+  background: linear-gradient(
+      to bottom, 
+      rgba(26, 26, 26, 0.85) 0%, 
+      rgba(26, 26, 26, 0.8) 100%
+    ), 
+    url('https://i.ibb.co/275bryKs/2026-02-19-T180119-461.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--white);
+  text-align: center;
+}
+
+.for-whom .section-label {
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 5px;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.for-whom .section-title {
+  color: var(--white);
+  font-weight: 400;
+  margin-bottom: 35px;
+  line-height: 1.2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.for-whom-intro {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem); /* Адаптивный размер */
+  color: rgba(255, 255, 255, 0.95);
+  font-style: italic;
+  line-height: 1.7;
+  max-width: 750px; /* Сузили для красоты */
+  margin: 0 auto;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
       .benefits-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -355,8 +376,10 @@
         font-size: 0.78rem;
         color: #777;
         line-height: 1.8;
-        font-weight: 300;
+        font-weight: 400;
       }
+
+      /* АВТОР */
       .author-section {
         background: linear-gradient(135deg, #1a1a1a 0%, #2d2417 100%);
         padding: 80px 20px;
@@ -468,7 +491,7 @@
         font-size: 0.84rem;
         color: rgba(255, 255, 255, 0.75);
         line-height: 1.8;
-        font-weight: 300;
+        font-weight: 400;
       }
       .quote-bar {
         width: 2px;
@@ -481,120 +504,235 @@
         color: var(--gold-light);
         font-weight: 500;
       }
-      /* ОТЗЫВЫ — КАРУСЕЛЬ */
-.testimonials-section {
-  padding: 80px 20px;
-  background: var(--cream);
-  overflow: hidden;
-}
-.testimonials-container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.testimonials-track-wrap {
-  position: relative;
-  margin-top: 45px;
-}
-.testimonials-track {
-  display: flex;
-  gap: 25px;
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: transform;
-}
-.testimonial-card {
-  background: var(--white);
-  border-top: 2px solid var(--gold);
-  overflow: hidden;
-  flex: 0 0 calc(33.333% - 17px);
-  min-width: calc(33.333% - 17px);
-  transition: box-shadow 0.3s;
-}
-.testimonial-card:hover {
-  box-shadow: 0 20px 40px rgba(201, 168, 76, 0.15);
-}
-.testimonial-screenshot {
-  width: 100%;
-  max-height: 320px;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  background: #faf8f3;
-  border-bottom: 1px solid #e8e0d0;
-}
-.testimonial-info {
-  padding: 18px 22px;
-}
-.testimonial-stars {
-  color: var(--gold);
-  font-size: 0.85rem;
-  margin-bottom: 8px;
-  letter-spacing: 2px;
-}
-.testimonial-author {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.1rem;
-  color: var(--gold-dark);
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-.testimonial-role {
-  font-size: 0.73rem;
-  color: #999;
-  font-weight: 300;
-  line-height: 1.6;
-}
+      /* ДО / ПОСЛЕ */
+      .before-after-section {
+        padding: 80px 20px;
+        background: var(--dark);
+      }
+      .before-after-container {
+        max-width: 950px;
+        margin: 0 auto;
+      }
+      .ba-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 50px;
+      }
+      .ba-row {
+        display: grid;
+        grid-template-columns: 1fr 60px 1fr;
+        gap: 0;
+        align-items: stretch;
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: all 0.6s ease;
+      }
+      .ba-row.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .ba-before {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-right: none;
+        padding: 28px 28px;
+        position: relative;
+      }
+      .ba-before::before {
+        content: "БЫЛО";
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        background: var(--dark);
+        padding: 0 10px;
+        font-size: 0.6rem;
+        letter-spacing: 3px;
+        color: rgba(255, 255, 255, 0.25);
+        font-weight: 500;
+      }
+      .ba-after {
+        background: rgba(201, 168, 76, 0.06);
+        border: 1px solid rgba(201, 168, 76, 0.25);
+        border-left: 3px solid var(--gold);
+        padding: 28px 28px;
+        position: relative;
+      }
+      .ba-after::before {
+        content: "СТАЛО";
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        background: var(--dark);
+        padding: 0 10px;
+        font-size: 0.6rem;
+        letter-spacing: 3px;
+        color: var(--gold);
+        font-weight: 500;
+      }
+      .ba-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(201, 168, 76, 0.05)
+        );
+        border-top: 1px solid rgba(201, 168, 76, 0.15);
+        border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+      }
+      .ba-arrow-icon {
+        color: var(--gold);
+        font-size: 1.4rem;
+        font-family: "Cormorant Garamond", serif;
+      }
+      .ba-before p {
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 0.87rem;
+        line-height: 1.85;
+        font-weight: 400;
+        font-style: italic;
+      }
+      .ba-after p {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.87rem;
+        line-height: 1.85;
+        font-weight: 400;
+      }
+      .ba-after p strong {
+        color: var(--gold);
+        font-weight: 500;
+        font-style: normal;
+      }
+      .ba-cta-wrap {
+        text-align: center;
+        margin-top: 50px;
+        padding: 40px;
+        border: 1px solid rgba(201, 168, 76, 0.2);
+        background: rgba(201, 168, 76, 0.04);
+      }
+      .ba-cta-text {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.6rem;
+        color: var(--white);
+        margin-bottom: 8px;
+        font-weight: 400;
+        line-height: 1.4;
+      }
+      .ba-cta-sub {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.8rem;
+        margin-bottom: 25px;
+        font-weight: 400;
+      }
 
-/* КАРУСЕЛЬ — навигация */
-.carousel-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin-top: 35px;
-}
-.carousel-btn {
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--gold);
-  background: transparent;
-  color: var(--gold);
-  cursor: pointer;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s;
-  font-family: "Cormorant Garamond", serif;
-}
-.carousel-btn:hover {
-  background: var(--gold);
-  color: var(--white);
-}
-.carousel-dots {
-  display: flex;
-  gap: 8px;
-}
-.carousel-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--gold-light);
-  cursor: pointer;
-  transition: all 0.3s;
-  border: none;
-}
-.carousel-dot.active {
-  background: var(--gold);
-  transform: scale(1.3);
-}
+      /* ОТЗЫВЫ */
+      .testimonials-section {
+        padding: 80px 20px;
+        background: var(--cream);
+        overflow: hidden;
+      }
+      .testimonials-container {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .testimonials-track-wrap {
+        position: relative;
+        margin-top: 45px;
+      }
+      .testimonials-track {
+        display: flex;
+        gap: 25px;
+        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform;
+      }
+      .testimonial-card {
+        background: var(--white);
+        border-top: 2px solid var(--gold);
+        overflow: hidden;
+        flex: 0 0 calc(33.333% - 17px);
+        min-width: calc(33.333% - 17px);
+        transition: box-shadow 0.3s;
+      }
+      .testimonial-card:hover {
+        box-shadow: 0 20px 40px rgba(201, 168, 76, 0.15);
+      }
+      .testimonial-screenshot {
+        width: 100%;
+        max-height: 320px;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        background: #faf8f3;
+        border-bottom: 1px solid #e8e0d0;
+      }
+      .testimonial-info {
+        padding: 18px 22px;
+      }
+      .testimonial-stars {
+        color: var(--gold);
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+        letter-spacing: 2px;
+      }
+      .testimonial-author {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.1rem;
+        color: var(--gold-dark);
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .testimonial-role {
+        font-size: 0.73rem;
+        color: #999;
+        font-weight: 400;
+        line-height: 1.6;
+      }
+      .carousel-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 35px;
+      }
+      .carousel-btn {
+        width: 44px;
+        height: 44px;
+        border: 1px solid var(--gold);
+        background: transparent;
+        color: var(--gold);
+        cursor: pointer;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+        font-family: "Cormorant Garamond", serif;
+      }
+      .carousel-btn:hover {
+        background: var(--gold);
+        color: var(--white);
+      }
+      .carousel-dots {
+        display: flex;
+        gap: 8px;
+      }
+      .carousel-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--gold-light);
+        cursor: pointer;
+        transition: all 0.3s;
+        border: none;
+      }
+      .carousel-dot.active {
+        background: var(--gold);
+        transform: scale(1.3);
+      }
 
-/* Мобильная версия карусели */
-@media (max-width: 768px) {
-  .testimonial-card {
-    flex: 0 0 85vw;
-    min-width: 85vw;
-  }
-}
+      /* СТУПЕНИ */
       .steps-section {
         background: var(--dark);
         padding: 80px 20px;
@@ -602,6 +740,38 @@
       .steps-container {
         max-width: 1100px;
         margin: 0 auto;
+      }
+      .steps-intro-box {
+        max-width: 750px;
+        margin: 0 auto 60px;
+        padding: 28px 35px;
+        background: rgba(201, 168, 76, 0.06);
+        border: 1px solid rgba(201, 168, 76, 0.2);
+        text-align: center;
+        position: relative;
+      }
+      .steps-intro-box::before {
+        content: "♛";
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--dark);
+        padding: 0 15px;
+        color: var(--gold);
+        font-size: 1rem;
+      }
+      .steps-intro-text {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.8;
+        font-style: italic;
+      }
+      .steps-intro-text strong {
+        color: var(--gold);
+        font-style: normal;
+        font-weight: 600;
       }
       .step {
         display: grid;
@@ -654,7 +824,7 @@
         line-height: 1.9;
         margin-bottom: 20px;
         font-size: 0.85rem;
-        font-weight: 300;
+        font-weight: 400;
       }
       .step-list {
         list-style: none;
@@ -665,7 +835,7 @@
         padding: 9px 0 9px 20px;
         position: relative;
         font-size: 0.83rem;
-        font-weight: 300;
+        font-weight: 400;
         border-bottom: 1px solid rgba(201, 168, 76, 0.1);
       }
       .step-list li::before {
@@ -685,7 +855,7 @@
         color: var(--gold-light);
         font-size: 0.83rem;
         line-height: 1.7;
-        font-weight: 300;
+        font-weight: 400;
         margin-bottom: 20px;
       }
       .step-prices {
@@ -705,19 +875,13 @@
       .step-price-name {
         font-size: 0.73rem;
         color: rgba(255, 255, 255, 0.6);
-        font-weight: 300;
+        font-weight: 400;
       }
       .step-price-right {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         gap: 2px;
-      }
-      .step-price-old {
-        font-size: 0.75rem;
-        color: rgba(255, 255, 255, 0.3);
-        text-decoration: line-through;
-        font-family: "Cormorant Garamond", serif;
       }
       .step-price-val {
         font-family: "Cormorant Garamond", serif;
@@ -753,22 +917,12 @@
         padding: 12px 0;
         border-top: 1px solid rgba(201, 168, 76, 0.15);
       }
-      
-
-      /* Подпись под ценой */
-      .price-valid-note {
-        font-size: 0.68rem;
-        color: #999;
-        font-weight: 300;
-        margin-top: 4px;
-      }
       .price-valid-note-dark {
         font-size: 0.68rem;
         color: rgba(255, 255, 255, 0.35);
-        font-weight: 300;
+        font-weight: 400;
         margin-top: 4px;
       }
-
       .step-card-visual {
         background: linear-gradient(
           135deg,
@@ -877,7 +1031,7 @@
         color: rgba(255, 255, 255, 0.5);
         font-size: 0.78rem;
         line-height: 1.9;
-        font-weight: 300;
+        font-weight: 400;
       }
       .step-format strong {
         font-family: "Cormorant Garamond", serif;
@@ -893,7 +1047,33 @@
         font-size: 1.1rem;
         font-style: normal;
         font-weight: 600;
-        
+      }
+      .after-steps {
+        margin-top: 60px;
+        padding: 40px 30px;
+        background: rgba(201, 168, 76, 0.06);
+        border: 1px solid rgba(201, 168, 76, 0.3);
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+      .after-steps h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.2rem;
+        color: var(--white);
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+      .after-steps p {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.75);
+        line-height: 1.7;
+        font-weight: 400;
+      }
+      .after-steps strong {
+        color: var(--gold-light);
       }
 
       /* ТАРИФЫ */
@@ -958,22 +1138,8 @@
       .pricing-card.featured .pricing-name {
         color: var(--white);
       }
-
-      /* ЦЕНА С ЗАЧЁРКИВАНИЕМ */
       .pricing-price-wrap {
         margin: 10px 0 5px;
-      }
-      .pricing-old-price {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 1.4rem;
-        color: #ccc;
-        text-decoration: line-through;
-        line-height: 1;
-        display: block;
-        margin-bottom: 2px;
-      }
-      .pricing-card.featured .pricing-old-price {
-        color: rgba(255, 255, 255, 0.25);
       }
       .pricing-price {
         font-family: "Cormorant Garamond", serif;
@@ -982,12 +1148,11 @@
         font-weight: 700;
         line-height: 1;
       }
-
       .pricing-note {
         font-size: 0.72rem;
         color: #999;
         margin-bottom: 16px;
-        font-weight: 300;
+        font-weight: 400;
       }
       .pricing-card.featured .pricing-note {
         color: rgba(255, 255, 255, 0.4);
@@ -996,7 +1161,7 @@
         font-size: 0.7rem;
         color: #aaa;
         margin-bottom: 18px;
-        font-weight: 300;
+        font-weight: 400;
       }
       .pricing-card.featured .pricing-group {
         color: rgba(255, 255, 255, 0.35);
@@ -1021,7 +1186,7 @@
         display: flex;
         align-items: flex-start;
         gap: 10px;
-        font-weight: 300;
+        font-weight: 400;
         border-bottom: 1px solid #f5f0e8;
       }
       .pricing-card.featured .pricing-features li {
@@ -1038,127 +1203,7 @@
         margin-top: 4px;
       }
 
-      /* ЗАМУЖ */
-      .zamuzh-section {
-        background: linear-gradient(135deg, #2d1b0e 0%, #1a1a1a 100%);
-        padding: 80px 20px;
-      }
-      .zamuzh-container {
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-      .zamuzh-section .section-title {
-        color: var(--white);
-      }
-      .zamuzh-section .section-desc {
-        color: rgba(255, 255, 255, 0.55);
-      }
-      .zamuzh-price-box {
-        text-align: center;
-        margin: 40px auto 45px;
-        max-width: 500px;
-        padding: 35px 30px;
-        border: 1px solid rgba(201, 168, 76, 0.3);
-        background: rgba(201, 168, 76, 0.05);
-      }
-      .zamuzh-price-label {
-        font-size: 0.68rem;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 12px;
-        font-weight: 500;
-      }
-      .zamuzh-price-main {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 4rem;
-        color: var(--gold);
-        font-weight: 700;
-        line-height: 1;
-        margin-bottom: 8px;
-      }
-      .zamuzh-price-sub {
-        font-size: 0.8rem;
-        color: rgba(255, 255, 255, 0.5);
-        font-weight: 300;
-        line-height: 1.7;
-      }
-      .zamuzh-steps {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        margin-top: 45px;
-      }
-      .zamuzh-step {
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(201, 168, 76, 0.2);
-        padding: 34px 26px;
-        text-align: center;
-        transition: all 0.3s;
-      }
-      .zamuzh-step:hover {
-        background: rgba(201, 168, 76, 0.04);
-        border-color: var(--gold);
-      }
-      .zamuzh-day {
-        font-size: 0.6rem;
-        letter-spacing: 3px;
-        color: var(--gold);
-        text-transform: uppercase;
-        margin-bottom: 18px;
-        font-weight: 500;
-      }
-      .zamuzh-step-num {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 5.5rem;
-        color: rgba(201, 168, 76, 0.12);
-        font-weight: 900;
-        line-height: 1;
-        margin-bottom: 14px;
-      }
-      .zamuzh-step-title {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 1.3rem;
-        color: var(--white);
-        margin-bottom: 12px;
-        font-weight: 500;
-      }
-      .zamuzh-step-text {
-        font-size: 0.81rem;
-        color: rgba(255, 255, 255, 0.6);
-        line-height: 1.9;
-        font-weight: 300;
-      }
-      .forty-one {
-        text-align: center;
-        margin-top: 50px;
-        padding: 38px 28px;
-        border: 1px solid rgba(201, 168, 76, 0.2);
-        background: rgba(201, 168, 76, 0.04);
-      }
-      .forty-one-num {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 5rem;
-        color: var(--gold);
-        font-weight: 700;
-        line-height: 1;
-      }
-      .forty-one-sub {
-        color: var(--gold);
-        font-size: 0.63rem;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        margin: 10px 0;
-        font-weight: 500;
-      }
-      .forty-one-text {
-        color: rgba(255, 255, 255, 0.6);
-        font-size: 0.82rem;
-        line-height: 1.9;
-        max-width: 500px;
-        margin: 0 auto;
-        font-weight: 300;
-      }
+      /* VIP */
       .vip-section {
         padding: 80px 20px;
         max-width: 950px;
@@ -1191,7 +1236,7 @@
       }
       .vip-title {
         font-family: "Cormorant Garamond", serif;
-        font-size: 1.80rem;
+        font-size: 1.8rem;
         color: var(--white);
         margin-bottom: 16px;
         font-weight: 400;
@@ -1201,7 +1246,7 @@
         margin-bottom: 36px;
         line-height: 1.9;
         font-size: 0.74rem;
-        font-weight: 300;
+        font-weight: 400;
       }
       .vip-features {
         display: grid;
@@ -1216,7 +1261,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        font-weight: 300;
+        font-weight: 400;
       }
       .vip-feature::before {
         content: "";
@@ -1225,9 +1270,6 @@
         border: 1px solid var(--gold);
         transform: rotate(45deg);
         flex-shrink: 0;
-      }
-      .vip-price-wrap {
-        margin-bottom: 8px;
       }
       .vip-price {
         font-family: "Cormorant Garamond", serif;
@@ -1240,8 +1282,92 @@
         color: rgba(255, 255, 255, 0.4);
         font-size: 0.81rem;
         margin-bottom: 30px;
-        font-weight: 300;
+        font-weight: 400;
       }
+
+    /* ПОСЛЕДНИЙ ШАНС — ОБНОВЛЕННЫЕ СТИЛИ */
+    .last-chance {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), 
+                    url('https://i.ibb.co/DHSLVMkw/image.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding: 100px 20px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      .last-chance-inner {
+        max-width: 700px;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.7);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        padding: 60px 40px;
+        border: 1px solid rgba(201, 168, 76, 0.2);
+      }
+
+      .last-chance h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        color: var(--white);
+        font-weight: 400;
+        line-height: 1.2;
+        margin-bottom: 30px;
+      }
+
+      /* Стили для сцены (курсивный элегантный текст) */
+      .last-chance-scene p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.1rem;
+        line-height: 1.8;
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        margin-bottom: 30px;
+      }
+
+      /* РУКОПИСНЫЕ АКЦЕНТЫ (только внутри span) */
+      .last-chance h2 span, 
+      .last-chance-scene p span,
+      .last-chance-note span {
+        font-family: 'Alex Brush', cursive; /* Проверь, что шрифт подключен в head */
+        color: var(--gold);
+        font-style: normal;
+        font-size: 1.4em;
+        line-height: 0;
+        vertical-align: middle;
+      }
+
+      /* Блок с датами и инфо */
+      .last-chance-note {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 35px;
+        border-top: 1px solid rgba(201, 168, 76, 0.2);
+        padding-top: 25px;
+      }
+
+      .last-chance-note strong {
+        color: var(--gold-light);
+        font-weight: 500;
+      }
+      .price-old-small {
+  font-size: 0.8rem;
+  text-decoration: line-through;
+  color: rgba(255, 255, 255, 0.3); /* Тусклый цвет для старой цены */
+  margin-bottom: -4px;
+  font-weight: 400;
+}
+
+.step-price-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+      /* ФИНАЛЬНЫЙ CTA */
       .final-cta {
         background: var(--gold);
         padding: 80px 20px;
@@ -1259,8 +1385,64 @@
         color: rgba(255, 255, 255, 0.85);
         font-size: 0.88rem;
         margin-bottom: 38px;
-        font-weight: 300;
+        font-weight: 400;
       }
+
+      /* ПЛАВАЮЩАЯ КНОПКА */
+      .float-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 9999;
+        background: linear-gradient(
+          135deg,
+          var(--gold) 0%,
+          var(--gold-dark) 100%
+        );
+        color: var(--white);
+        text-decoration: none;
+        padding: 14px 26px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.65rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 500;
+        box-shadow: 0 8px 30px rgba(201, 168, 76, 0.45);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      .float-btn.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .float-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 40px rgba(201, 168, 76, 0.55);
+      }
+      .float-btn-pulse {
+        width: 8px;
+        height: 8px;
+        background: var(--white);
+        border-radius: 50%;
+        animation: pulse-dot 1.8s infinite;
+        flex-shrink: 0;
+      }
+      @keyframes pulse-dot {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(0.7);
+        }
+      }
+
       footer {
         background: var(--dark);
         padding: 30px;
@@ -1268,12 +1450,23 @@
         color: rgba(255, 255, 255, 0.28);
         font-size: 0.72rem;
         letter-spacing: 1px;
-        font-weight: 300;
+        font-weight: 400;
       }
       footer span {
         color: var(--gold);
       }
 
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.7s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* MOBILE */
       @media (max-width: 768px) {
         nav {
           padding: 12px 16px;
@@ -1289,7 +1482,6 @@
           padding: 50px 16px;
         }
         .steps-section,
-        .zamuzh-section,
         .author-section {
           padding: 50px 16px;
         }
@@ -1321,17 +1513,8 @@
           padding: 50px 16px;
         }
         .testimonial-card {
-  flex: 0 0 85vw;
-  min-width: 85vw;
-}
-        .zamuzh-steps {
-          grid-template-columns: 1fr;
-        }
-        .forty-one {
-          padding: 28px 18px;
-        }
-        .for-whom-intro {
-          font-size: 1.05rem;
+          flex: 0 0 85vw;
+          min-width: 85vw;
         }
         .pricing-section {
           padding: 50px 8px;
@@ -1358,9 +1541,6 @@
         .pricing-name {
           font-size: 0.8rem;
           margin-bottom: 4px;
-        }
-        .pricing-old-price {
-          font-size: 0.85rem;
         }
         .pricing-price {
           font-size: 1.4rem;
@@ -1396,26 +1576,50 @@
           font-size: 0.5rem;
           letter-spacing: 0.3px;
         }
-        .price-valid-note {
-          font-size: 0.48rem;
+        .social-proof-inner {
+          grid-template-columns: repeat(2, 1fr);
         }
-        .step-price-old {
-          font-size: 0.65rem;
+        .sp-item {
+          border-right: none;
+          border-bottom: 1px solid #f0e8d8;
         }
-        .step-price-val {
+        .sp-item:nth-child(2n) {
+          border-bottom: 1px solid #f0e8d8;
+        }
+        .sp-item:last-child,
+        .sp-item:nth-last-child(2):nth-child(odd) {
+          border-bottom: none;
+        }
+        .ba-row {
+          grid-template-columns: 1fr;
+        }
+        .ba-arrow {
+          display: none;
+        }
+        .ba-before {
+          border-right: 1px solid rgba(255, 255, 255, 0.08);
+          border-bottom: none;
+        }
+        .video-overlay-text {
+          gap: 20px;
+        }
+        .last-chance-scene {
+          padding: 25px 20px;
+        }
+        .float-btn {
+          bottom: 20px;
+          right: 16px;
+          padding: 12px 18px;
+        }
+        .steps-intro-box {
+          padding: 22px 18px;
+          margin: 0 auto 40px;
+        }
+        .steps-intro-text {
           font-size: 1rem;
         }
       }
 
-      .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.7s ease;
-      }
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
       ::-webkit-scrollbar {
         width: 5px;
       }
@@ -1425,14 +1629,20 @@
       ::-webkit-scrollbar-thumb {
         background: var(--gold);
       }
-      text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-bottom: 20px;
-        color: #888;
-      
     </style>
   </head>
   <body>
+    <!-- ПЛАВАЮЩАЯ КНОПКА -->
+    <a
+      href="https://t.me/JuliaEnergopraktika"
+      class="float-btn"
+      id="floatBtn"
+      target="_blank"
+    >
+      <span class="float-btn-pulse"></span>
+      Записаться ♛
+    </a>
+
     <nav>
       <div class="nav-logo">♛ Жена Миллионера</div>
       <ul class="nav-links">
@@ -1445,6 +1655,7 @@
       </ul>
     </nav>
 
+    <!-- 1. ГЕРОЙ — первый контакт, боль + мечта -->
     <section class="hero" id="top">
       <div class="hero-content">
         <div class="hero-badge">✦ Программа трансформации ✦</div>
@@ -1459,670 +1670,719 @@
         </div>
       </div>
     </section>
-  </section>
-  <!-- КОНЕЦ ГЕРОЯ -->
 
-  <!-- БОЛИ -->
-<section style="background: linear-gradient(135deg, #2d1b0e 0%, #1a1a1a 100%); padding: 70px 20px;">
-  <div style="max-width: 900px; margin: 0 auto;">
-    <p class="section-label">✦ Узнаёшь себя? ✦</p>
-    <h2 class="section-title" style="color: white; margin-bottom: 50px;">
-      Ты устала от того, что...
-    </h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
-
-      <!-- БОЛЬ 1 -->
-      <div style="background: rgba(201,168,76,0.05); border-left: 3px solid var(--gold); padding: 28px 24px;">
-        <h3 style="font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 1.4rem; margin-bottom: 12px;">
-          Снова не тот
-        </h3>
-        <p style="color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 0.85rem; font-weight: 300;">
-          Ты успешна, красива, интересна — но притягиваешь мужчин, которые не ценят тебя. Или вообще не на твоём уровне.
-        </p>
-      </div>
-
-      <!-- БОЛЬ 2 -->
-      <div style="background: rgba(201,168,76,0.05); border-left: 3px solid var(--gold); padding: 28px 24px;">
-        <h3 style="font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 1.4rem; margin-bottom: 12px;">
-          «Золотая клетка»
-        </h3>
-        <p style="color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 0.85rem; font-weight: 300;">
-          Страх, что богатый = абьюзер или нарцисс. «Переспит и бросит» или «посадит в клетку». Поэтому закрываешься ещё до знакомства.
-        </p>
-      </div>
-
-      <!-- БОЛЬ 3 -->
-      <div style="background: rgba(201,168,76,0.05); border-left: 3px solid var(--gold); padding: 28px 24px;">
-        <h3 style="font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 1.4rem; margin-bottom: 12px;">
-          «Я недостаточно»
-        </h3>
-        <p style="color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 0.85rem; font-weight: 300;">
-          Снаружи всё идеально. Но внутри — «я недостаточно хороша для такого мужчины». И он это чувствует раньше, чем ты успеваешь сказать слово.
-        </p>
-      </div>
-
-      <!-- БОЛЬ 4 -->
-      <div style="background: rgba(201,168,76,0.05); border-left: 3px solid var(--gold); padding: 28px 24px;">
-        <h3 style="font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 1.4rem; margin-bottom: 12px;">
-          Токсичный круг
-        </h3>
-        <p style="color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 0.85rem; font-weight: 300;">
-          Одни и те же сценарии, одни и те же ошибки. Работала с психологами годами — а паттерн не меняется.
-        </p>
-      </div>
-
-    </div>
-
-    <!-- ПЕРЕХОД К РЕШЕНИЮ -->
-    <div style="text-align: center; margin-top: 50px; padding: 35px 30px; border: 1px solid rgba(201,168,76,0.3); background: rgba(201,168,76,0.04);">
-      <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: white; font-style: italic; line-height: 1.7; margin-bottom: 20px;">
-        Это не твоя вина. Это — нейронные связи,<br>
-        которые сформировались без твоего ведома.<br>
-        <span style="color: var(--gold);">И они меняются. Я покажу как.</span>
-      </p>
-      <a href="#steps" class="btn-primary">Хочу изменить это</a>
-    </div>
-
-  </div>
-</section>
-<!-- КОНЕЦ БОЛЕЙ -->
-
-  <section class="for-whom" id="about">
-    <section class="for-whom" id="about">
-      <p class="section-label">✦ Программа для тебя, если ✦</p>
-      <h2 class="section-title">Ты готова к большему</h2>
-      <p class="section-desc">
-        Отношения с успешным мужчиной — это не только роскошь и безопасность.
-        Это путь, к которому нужно быть готовой изнутри.
-      </p>
-      <p class="for-whom-intro">
-        Я проведу тебя по этому пути максимально быстро и комфортно — с
-        глубинными изменениями, которые останутся с тобой навсегда.
-      </p>
-      <div class="benefits-grid fade-in">
-        <div class="benefit-card">
-          <div class="benefit-number">01</div>
-          <div class="benefit-title">Освободишься от прошлого</div>
-          <div class="benefit-text">
-            Избавишься от негативных установок, травм и страхов, которые годами
-            мешали строить здоровые отношения
-          </div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-number">02</div>
-          <div class="benefit-title">Поверишь в свою ценность</div>
-          <div class="benefit-text">
-            Почувствуешь глубинную уверенность в своей красоте и значимости —
-            ту, что притягивает успешных мужчин
-          </div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-number">03</div>
-          <div class="benefit-title">Научишься выбирать себя</div>
-          <div class="benefit-text">
-            В любой ситуации будешь элегантно отстаивать свои интересы, не
-            жертвуя отношениями
-          </div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-number">04</div>
-          <div class="benefit-title">Войдёшь в новый мир</div>
-          <div class="benefit-text">
-            Станешь органичной в кругу состоятельных людей — в России или за
-            рубежом
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"><span class="divider-icon">♛</span></div>
-
-    <section class="author-section" id="author">
-      <div class="author-container">
-        <div class="author-photo-wrap fade-in">
-          <img
-            src="https://i.ibb.co/nsRGz6sT/IMG-5902-resized-1.jpg"
-            alt="Юлия Люмен"
-            class="author-photo"
-          />
-          <div class="author-photo-badge">Нейропсихолог</div>
-        </div>
-        <div class="author-content fade-in">
-          <div class="author-label">✦ Автор программы ✦</div>
-          <h2 class="author-name">Юлия<br />Люмен</h2>
-          <div class="author-role">
-            Эксперт по психологии отношений с мужчинами высокого уровня. Я знаю,
-            чего хотят миллионеры в женщине — и как стать именно той, которую
-            они выбирают.
-          </div>
-          <div class="author-stats">
-            <div class="stat-item">
-              <span class="stat-num">20+</span>
-              <span class="stat-label">лет в бизнесе</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-num">5000+</span>
-              <span class="stat-label">часов в практике</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-num">12</span>
-              <span class="stat-label">стран работы</span>
-            </div>
-          </div>
-          <div class="author-quotes">
-            <div class="author-quote">
-              <div class="quote-bar"></div>
-              <p>
-                За моими плечами <strong>20 лет в собственном бизнесе</strong>.
-                Всю жизнь я вращаюсь в состоятельных слоях общества, поэтому
-                знаю законы и правила этих людей изнутри. Я знаю, как они
-                думают, что ценят в женщине и почему выбирают одних и навсегда
-                проходят мимо других.
-              </p>
-            </div>
-            <div class="author-quote">
-              <div class="quote-bar"></div>
-              <p>
-                Я работаю с женщинами,
-                <strong>которые уже многого достигли сами</strong> — но в личной
-                жизни снова и снова выбирают не тех. Мы разбираемся почему — и
-                меняем это на уровне психики, а не советов «люби себя».
-              </p>
-            </div>
-            <div class="author-quote">
-              <div class="quote-bar"></div>
-              <p>
-                Мужчины высокого уровня
-                <strong>мгновенно считывают женщину</strong> — её состояние,
-                уверенность, ценности. Моя работа — сделать так, чтобы увиденное
-                в тебе
-                <strong>заставило их выбрать тебя и остаться навсегда.</strong>
-              </p>
-            </div>
-            <div class="author-quote">
-              <div class="quote-bar"></div>
-              <p>
-                Нейропсихология работает
-                <strong>на уровне нейронных связей</strong> — меняет не
-                поведение, а саму структуру реакций. После работы со мной ты не
-                «стараешься» вести себя иначе — ты просто становишься другой.
-                Той, которую выбирают.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"><span class="divider-icon">♛</span></div>
-
-    <section class="steps-section" id="steps">
-      <div class="steps-container">
-        <p class="section-label">✦ Путь трансформации ✦</p>
-        <h2
-          class="section-title"
-          style="color: white; max-width: 650px; margin: 0 auto 20px"
-        >
-          3 ступени к мужчине, который выберет только тебя
-        </h2>
-        <p class="section-desc" style="color: rgba(255, 255, 255, 0.5)">
-          Глубинные изменения требуют времени. Мы идём поэтапно — бережно и
-          результативно
-        </p>
-        <div class="steps-intro-box">
-          <p class="steps-intro-text">
-            Лучший результат даёт прохождение всех трёх ступеней
-            последовательно.<br />
-            Начать можно с <strong>первой</strong> или <strong>второй</strong> —
-            выбери, что тебе откликается.<br />
-            <strong>Третья ступень</strong> (корона программы) — откроется после
-            первых двух.
-          </p>
-        </div>
-
-        <div class="step">
-          <div class="step-content">
-            <div class="step-tag">Ступень 1 · Освобождение</div>
-            <h3 class="step-title">Свобода от <span>страхов</span></h3>
-            <p class="step-desc">
-              Проработаем всё, что удерживает тебя на месте: страх отношений,
-              страх попасть в зависимость от богатого мужчины, неуверенность
-              своей ценности и красоте, влияние прошлого негативного опыта. Ты
-              откроешься новой жизни.
-            </p>
-            <ul class="step-list">
-              <li>Глубинная проработка страхов и любой неуверенности</li>
-              <li>Повышение самоценности и веры в себя</li>
-              <li>Освобождение от родительских сценариев</li>
-              <li>Исцеление от травм прошлых отношений</li>
-              <li>Принятие нового статуса и культуры без потери себя</li>
-            </ul>
-            <div class="step-result">
-              ✦ Результат: Ты свободна от страхов и готова без опасений входить
-              в отношения с успешными мужчинами
-            </div>
-            <div class="step-signup">
-              <div class="step-signup-date">Старт — 25 марта 2026</div>
-              <div class="step-prices">
-                <div class="step-price-row">
-                  <span class="step-price-name"
-                    >Тариф Принцесса</span
-                  >
-                  <div class="step-price-right">
-                    <span class="step-price-val">25 000 ₽</span>
-                  </div>
-                </div>
-                <div class="step-price-row">
-                  <span class="step-price-name"
-                    >Тариф Королева</span
-                  >
-                  <div class="step-price-right">
-                    <span class="step-price-val">55 000 ₽</span>
-                  </div>
-                </div>
-                <div class="step-price-row">
-                  <span class="step-price-name"
-                    >Тариф Императрица</span
-                  >
-                  <div class="step-price-right">
-                    <span class="step-price-val">99 000 ₽</span>
-                  </div>
-                </div>
-              </div>
-              <div class="price-valid-note-dark">
-                цена действует до 15 марта
-              </div>
-              <br />
-              <a href="https://t.me/JuliaEnergopraktika" class="btn-primary"
-                >Записаться в Telegram ♛</a
-              >
-            </div>
-          </div>
-          <div class="step-visual">
-            <div class="step-card-visual">
-              <div class="step-icon-area"><div class="s-icon-key"></div></div>
-              <div class="step-format">
-                <strong>11 занятий</strong>
-                5 живых встреч в Zoom<br />+ 6 медитаций в записи<br /><br />
-                <em>2,5 часа</em><br />каждая встреча
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-content">
-            <div class="step-tag">Ступень 2 · Самоценность</div>
-            <h3 class="step-title">Я выбираю <span>себя</span></h3>
-            <p class="step-desc">
-              Построим твою внутреннюю опору и уверенность. Научишься ставить
-              себя на первое место — и мужчина это оценит.
-            </p>
-            <ul class="step-list">
-              <li>Умение выбирать свои интересы в любой ситуации</li>
-              <li>Нахождение силы и опоры в себе</li>
-              <li>Установка здоровых личных границ</li>
-              <li>Глубинная уверенность в своей красоте</li>
-              <li>
-                Навык принимать заботу, внимание и подарки. Практическое
-                руководство, как это делать, чтобы получать больше, чем могла
-                представить
-              </li>
-            </ul>
-            <div class="step-result">
-              ✦ Результат: Ты выстраиваешь отношения, где чувствуешь себя
-              защищённой, любимой и ценной
-            </div>
-            <div class="step-signup">
-              <div class="step-signup-coming">
-                ✦ Дата следующей ступени будет объявлена после старта первой
-              </div>
-            </div>
-          </div>
-          <div class="step-visual">
-            <div class="step-card-visual">
-              <div class="step-icon-area"><div class="s-icon-gem"></div></div>
-              <div class="step-format">
-                <strong>11 занятий</strong>
-                5 живых встреч в Zoom<br />+ 6 медитаций в записи<br /><br />
-                <em>2,5 часа</em><br />каждая встреча
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-content">
-            <div class="step-tag">Ступень 3 · Корона</div>
-            <h3 class="step-title">Королева <span>своей жизни</span></h3>
-            <p class="step-desc">
-              Ты становишься той, которая создаёт свою реальность. Царственная,
-              желанная, уверенная — и абсолютно свободная.
-            </p>
-            <ul class="step-list">
-              <li>
-                Элегантный выход из конфликтов с выгодой для себя. Навык
-                управления конфликтами
-              </li>
-              <li>
-                Мастерство отстаивания своих интересов. Здоровые границы будут
-                защищать тебя в любой ситуации
-              </li>
-              <li>
-                Гармоничное взаимодействие не только с партнёром, но и с его
-                семьёй
-              </li>
-              <li>
-                Создание жизни мечты без предательства себя. Ты научишься не
-                только привлекать состоятельного мужчину, но и станешь его
-                королевой
-              </li>
-              <li>Искусство быть одновременно царственной и желанной</li>
-            </ul>
-            <div class="step-result">
-              ✦ Результат: Ты творишь свою счастливую реальность и выходишь
-              победительницей из любых обстоятельств
-            </div>
-            <div class="step-signup">
-              <div class="step-signup-coming">
-                ✦ Дата следующей ступени будет объявлена после старта второй
-              </div>
-            </div>
-          </div>
-          <div class="step-visual">
-            <div class="step-card-visual">
-              <div class="step-icon-area"><div class="s-icon-crown"></div></div>
-              <div class="step-format">
-                <strong>11 занятий</strong>
-                6 живых встреч в Zoom<br />+ 5 медитаций в записи<br /><br />
-                <em>2,5 часа</em><br />каждая встреча
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-</section>
-    <section class="testimonials-section" id="testimonials">
-      <div class="testimonials-container">
-        <p class="section-label">✦ Истории успеха ✦</p>
-        <h2 class="section-title">Они уже изменили свою жизнь</h2>
-        <p class="section-desc">Реальные отзывы клиенток из практики</p>
-    
-        <div class="testimonials-track-wrap">
-          <div class="testimonials-track" id="testimonialsTrack">
-            <div class="testimonial-card">
-              <img src="https://i.ibb.co/ynB9PDbY/photo-5028772865683598413-y-1.jpg" alt="Отзыв 1" class="testimonial-screenshot" />
-              <div class="testimonial-info">
-                <div class="testimonial-stars">★★★★★</div>
-                <div class="testimonial-author">Анастасия, 34 года</div>
-                <div class="testimonial-role">Перестала быть "роскошной инопланетянкой" — стала королевой на одной линии с партнёром.</div>
-              </div>
-            </div>
-            <div class="testimonial-card">
-              <img src="https://i.ibb.co/zWKHNJhw/photo-5059954607425433189-y-1.jpg" alt="Отзыв 2" class="testimonial-screenshot" />
-              <div class="testimonial-info">
-                <div class="testimonial-stars">★★★★★</div>
-                <div class="testimonial-author">Екатерина, 29 лет</div>
-                <div class="testimonial-role">Через 3 сессии получила браслет за 13 000 €. Просто подняли её внутреннюю ценность.</div>
-              </div>
-            </div>
-            <div class="testimonial-card">
-              <img src="https://i.ibb.co/nN3MzYV0/photo-4999268239951375900-y-1.jpg" alt="Отзыв 3" class="testimonial-screenshot" />
-              <div class="testimonial-info">
-                <div class="testimonial-stars">★★★★★</div>
-                <div class="testimonial-author">Мария, 31 год</div>
-                <div class="testimonial-role">Вышла из токсичных отношений за 1 сессию — то, что не получилось за 2 года с психологом.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-    
-        <div class="carousel-nav">
-          <button class="carousel-btn" id="prevBtn">←</button>
-          <div class="carousel-dots" id="carouselDots"></div>
-          <button class="carousel-btn" id="nextBtn">→</button>
-        </div>
-    
-      </div>
-    </section>
-
-    <section class="pricing-section" id="pricing">
-      <p class="section-label">✦ Инвестиция в себя ✦</p>
-      <h2 class="section-title">Выбери свой путь</h2>
-      <p class="section-desc">
-        Ступень «Корона» стоит на 10 000 ₽ дороже в каждом тарифе
-      </p>
-      <div class="pricing-grid fade-in">
-        <!-- ПРИНЦЕССА -->
-        <div class="pricing-card">
-          <div class="pricing-tier">Тариф Принцесса</div>
-          <div class="pricing-name">Погружение</div>
-          <div class="pricing-price-wrap">
-            <div class="pricing-price">
-              25 000 <span style="font-size: 1.2rem">₽</span>
-            </div>
-          </div>
-          <div class="pricing-note">за одну ступень</div>
-          <div class="pricing-group">Группа 15–30 человек</div>
-          <div class="p-divider"></div>
-          <ul class="pricing-features">
-            <li>Все живые встречи в Zoom (по 2,5 часа)</li>
-            <li>Общий чат с поддержкой участниц</li>
-            <li>Все учебные материалы и медитации</li>
-            <li>Доступ к записям 6 месяцев</li>
-          </ul>
-          <a
-            href="https://t.me/JuliaEnergopraktika"
-            class="btn-secondary"
-            style="width: 100%; text-align: center; display: block"
-            >Начать</a
-          >
-        </div>
-
-        <!-- КОРОЛЕВА -->
-        <div class="pricing-card featured">
-          <div class="pricing-badge">⭐ Лучший выбор</div>
-          <div class="pricing-tier">Тариф Королева</div>
-          <div class="pricing-name">Трансформация</div>
-          <div class="pricing-price-wrap">
-            <div class="pricing-price">
-              55 000 <span style="font-size: 1.2rem">₽</span>
-            </div>
-          </div>
-          <div class="pricing-note">за одну ступень</div>
-          <div class="pricing-group">Камерная группа 8–12 человек</div>
-          <div class="p-divider"></div>
-          <ul class="pricing-features">
-            <li>Все живые встречи в Zoom (по 2,5 часа)</li>
-            <li>Общий + VIP чат для глубоких вопросов</li>
-            <li>Личная консультация с автором (1,5 часа)</li>
-            <li>Все материалы и медитации</li>
-            <li>Доступ к записям 1 год</li>
-          </ul>
-          <a
-            href="https://t.me/JuliaEnergopraktika"
-            class="btn-primary"
-            style="width: 100%; text-align: center; display: block"
-            >Выбрать</a
-          >
-        </div>
-
-        <!-- ИМПЕРАТРИЦА -->
-        <div class="pricing-card">
-          <div class="pricing-tier">Тариф Императрица</div>
-          <div class="pricing-name">Реализация</div>
-          <div class="pricing-price-wrap">
-            <div class="pricing-price">
-              99 000 <span style="font-size: 1.2rem">₽</span>
-            </div>
-          </div>
-          <div class="pricing-note">за одну ступень</div>
-          <div class="pricing-group">Эксклюзивная группа до 6 человек</div>
-          <div class="p-divider"></div>
-          <ul class="pricing-features">
-            <li>Всё из тарифа «Королева»</li>
-            <li>2 индивидуальные встречи (по 1,5 часа)</li>
-            <li>Беседа с женой миллиардера: вопрос-ответ (2 часа)</li>
-            <li>Интеграция женских энергий через нейрографику (2,5 часа)</li>
-            <li>Доступ к записям навсегда</li>
-          </ul>
-          <a
-            href="https://t.me/JuliaEnergopraktika"
-            class="btn-primary"
-            style="width: 100%; text-align: center; display: block"
-            >Хочу</a
-          >
-        </div>
-      </div>
-    </section>
+    <!-- 3. БОЛИ — узнавание себя -->
     <section
-      style="background: var(--cream); padding: 60px 20px; text-align: center"
+      style="
+        background: linear-gradient(135deg, #2d1b0e 0%, #1a1a1a 100%);
+        padding: 70px 20px;
+      "
     >
-      <div
-        style="
-          max-width: 700px;
-          margin: 0 auto;
-          padding: 45px 40px;
-          border: 1px solid var(--gold-light);
-        "
-      >
-        <p class="section-label">✦ Также у меня есть ✦</p>
-        <h2 class="section-title">«Замуж за миллионера»</h2>
-        <p class="section-desc" style="margin-bottom: 30px">
-          Интенсив на 123 дня с индивидуальным сопровождением — для максимально
-          глубокой трансформации
-        </p>
-        <a href="zamuzh.html" class="btn-primary">Узнать подробнее →</a>
-      </div>
-    </section>
-
-    <section class="vip-section">
-      <p class="section-label">✦ Только для выпускниц ✦</p>
-      <div class="vip-box fade-in">
-        <div class="vip-label">★ Персональное сопровождение ★</div>
-        <h2 class="vip-title">Личная работа со мной</h2>
-        <p class="vip-desc">
-          Максимально индивидуальный формат для тех, кто хочет пройти
-          трансформацию с постоянной поддержкой эксперта
-        </p>
-        <div class="vip-features">
-          <div class="vip-feature">Еженедельные разборы твоих ситуаций</div>
-          <div class="vip-feature">Постоянная связь в Telegram</div>
-          <div class="vip-feature">Личные сессии 1,5 по 2 раза в месяц</div>
-          <div class="vip-feature">Доступно только выпускницам</div>
-        </div>
-        <div class="vip-price-wrap">
-          <div class="vip-price">150 000 ₽</div>
-        </div>
-        <div class="vip-dur">3 месяца персональной работы</div>
-        <a href="https://t.me/JuliaEnergopraktika" class="btn-secondary"
-          >Узнать подробнее</a
+      <div style="max-width: 900px; margin: 0 auto">
+        <p class="section-label">✦ Узнаёшь себя? ✦</p>
+        <h2 class="section-title" style="color: white; margin-bottom: 50px">
+          Ты устала от того, что...
+        </h2>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+          "
         >
+          <div
+            style="
+              background: rgba(201, 168, 76, 0.05);
+              border-left: 3px solid var(--gold);
+              padding: 28px 24px;
+            "
+          >
+            <h3
+              style="
+                font-family: 'Cormorant Garamond', serif;
+                color: var(--gold);
+                font-size: 1.4rem;
+                margin-bottom: 12px;
+              "
+            >
+              Снова не тот
+            </h3>
+            <p
+              style="
+                color: rgba(255, 255, 255, 0.7);
+                line-height: 1.8;
+                font-size: 0.85rem;
+                font-weight: 400;
+              "
+            >
+              Ты успешна, красива, интересна — но притягиваешь мужчин, которые
+              не ценят тебя. Или вообще не на твоём уровне.
+            </p>
+          </div>
+          <div
+            style="
+              background: rgba(201, 168, 76, 0.05);
+              border-left: 3px solid var(--gold);
+              padding: 28px 24px;
+            "
+          >
+            <h3
+              style="
+                font-family: 'Cormorant Garamond', serif;
+                color: var(--gold);
+                font-size: 1.4rem;
+                margin-bottom: 12px;
+              "
+            >
+              «Золотая клетка»
+            </h3>
+            <p
+              style="
+                color: rgba(255, 255, 255, 0.7);
+                line-height: 1.8;
+                font-size: 0.85rem;
+                font-weight: 400;
+              "
+            >
+              Страх, что богатый = абьюзер или нарцисс. «Переспит и бросит».
+              Поэтому закрываешься ещё до знакомства.</p>
+            </div>
+            <div style="background: rgba(201,168,76,0.05); border-left: 3px solid var(--gold); padding: 28px 24px;">
+              <h3 style="font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 1.4rem; margin-bottom: 12px;">«Я недостаточно»</h3>
+              <p style="color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 0.85rem; font-weight: 400;">Снаружи всё идеально. Но внутри — «я недостаточно хороша для такого мужчины». И он это чувствует раньше, чем ты успеваешь сказать слово.</p>
+            </div>
+            <div style="background: rgba(201,168,76,0.05); border-left: 3px solid var(--gold); padding: 28px 24px;">
+              <h3 style="font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 1.4rem; margin-bottom: 12px;">Токсичный круг</h3>
+              <p style="color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 0.85rem; font-weight: 400;">Одни и те же сценарии, одни и те же ошибки. Работала с психологами годами — а паттерн не меняется.</p>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 50px; padding: 35px 30px; border: 1px solid rgba(201,168,76,0.3); background: rgba(201,168,76,0.04);">
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: white; font-style: italic; line-height: 1.7; margin-bottom: 20px;">
+              Это не твоя вина. Это — нейронные связи,<br>
+              которые сформировались без твоего ведома.<br>
+              <span style="color: var(--gold);">И они меняются. Я покажу как.</span>
+            </p>
+            <a href="#steps" class="btn-primary">Хочу изменить это</a>
+          </div>
+        </div>
+      </section>
+    
+      <section class="for-whom">
+        <div class="section-label">Программа для тебя, если✦</div>
+        <h2 class="section-title">Ты готова к большему</h2>
+        
+        <div class="for-whom-intro">
+          Отношения с успешным мужчиной — это путь, к которому нужно быть готовой изнутри. 
+          Я проведу тебя к изменениям, которые станут твоей новой реальностью навсегда.
+        </div>
+      </section>
+        <div class="benefits-grid fade-in">
+          <div class="benefit-card">
+            <div class="benefit-number">01</div>
+            <div class="benefit-title">Освободишься от прошлого</div>
+            <div class="benefit-text">
+              Избавишься от негативных установок, травм и страхов, которые годами
+              мешали строить здоровые отношения
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-number">02</div>
+            <div class="benefit-title">Поверишь в свою ценность</div>
+            <div class="benefit-text">
+              Почувствуешь глубинную уверенность в своей красоте и значимости —
+              ту, что притягивает успешных мужчин
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-number">03</div>
+            <div class="benefit-title">Научишься выбирать себя</div>
+            <div class="benefit-text">
+              В любой ситуации будешь элегантно отстаивать свои интересы, не
+              жертвуя отношениями
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-number">04</div>
+            <div class="benefit-title">Войдёшь в новый мир</div>
+            <div class="benefit-text">
+              Станешь органичной в кругу состоятельных людей — в России или за
+              рубежом
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <div class="divider"><span class="divider-icon">♛</span></div>
+    
+      <!-- 5. АВТОР — экспертность и доверие -->
+      <section class="author-section" id="author">
+        <div class="author-container">
+          <div class="author-photo-wrap fade-in">
+            <img
+              src="https://i.ibb.co/nsRGz6sT/IMG-5902-resized-1.jpg"
+              alt="Юлия Люмен"
+              class="author-photo"
+            />
+            <div class="author-photo-badge">Нейропсихолог</div>
+          </div>
+          <div class="author-content fade-in">
+            <div class="author-label">✦ Автор программы ✦</div>
+            <h2 class="author-name">Юлия<br />Люмен</h2>
+            <div class="author-role">
+              Эксперт по психологии отношений с мужчинами высокого уровня. Я знаю,
+              чего хотят миллионеры в женщине — и как стать именно той, которую
+              они выбирают.
+            </div>
+            <div class="author-stats">
+              <div class="stat-item">
+                <span class="stat-num">20+</span>
+                <span class="stat-label">лет в бизнесе</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">5000+</span>
+                <span class="stat-label">часов в практике</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">12</span>
+                <span class="stat-label">стран работы</span>
+              </div>
+            </div>
+            <div class="author-quotes">
+              <div class="author-quote">
+                <div class="quote-bar"></div>
+                <p>
+                  За моими плечами <strong>20 лет в собственном бизнесе</strong>.
+                  Всю жизнь я вращаюсь в состоятельных слоях общества, поэтому
+                  знаю законы и правила этих людей изнутри.
+                </p>
+              </div>
+              <div class="author-quote">
+                <div class="quote-bar"></div>
+                <p>
+                  Я работаю с женщинами,
+                  <strong>которые уже многого достигли сами</strong> — но в личной
+                  жизни снова и снова выбирают не тех. Мы разбираемся почему — и
+                  меняем это на уровне психики, а не советов «люби себя».
+                </p>
+              </div>
+              <div class="author-quote">
+                <div class="quote-bar"></div>
+                <p>
+                  Мужчины высокого уровня
+                  <strong>мгновенно считывают женщину</strong> — её состояние,
+                  уверенность, ценности. Моя работа — сделать так, чтобы увиденное
+                  в тебе
+                  <strong>заставило их выбрать тебя и остаться навсегда.</strong>
+                </p>
+              </div>
+              <div class="author-quote">
+                <div class="quote-bar"></div>
+                <p>
+                  Нейропсихология работает
+                  <strong>на уровне нейронных связей</strong> — меняет не
+                  поведение, а саму структуру реакций. После работы со мной ты не
+                  «стараешься» вести себя иначе — ты просто становишься другой.
+                  Той, которую выбирают.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <!-- 7. СТУПЕНИ ПРОГРАММЫ — продукт -->
+      <section class="steps-section" id="steps">
+        <div class="steps-container">
+          <p class="section-label">✦ Путь трансформации ✦</p>
+          <h2 class="section-title" style="color: white; max-width: 650px; margin: 0 auto 20px">
+            3 ступени к мужчине, который выберет только тебя
+          </h2>
+          <p class="section-desc" style="color: rgba(255, 255, 255, 0.5)">
+            Глубинные изменения требуют времени. Мы идём поэтапно — бережно и результативно
+          </p>
+          <div class="steps-intro-box">
+            <p class="steps-intro-text">
+              Лучший результат даёт прохождение всех трёх ступеней последовательно.<br />
+              Начать можно с <strong>первой</strong> или <strong>второй</strong> —
+              выбери, что тебе откликается.<br />
+              <strong>Третья ступень</strong> (корона программы) — откроется после первых двух.
+            </p>
+          </div>
+    
+          <!-- СТУПЕНЬ 1 -->
+          <div class="step">
+            <div class="step-content">
+              <div class="step-tag">Ступень 1 · Освобождение</div>
+              <h3 class="step-title">Свобода от <span>страхов</span></h3>
+              <p class="step-desc">
+                Проработаем барьеры, которые мешают двигаться вперед: от страха отношений до неуверенности в себе и груза прошлого опыта.
+              </p>
+              <ul class="step-list">
+                <li>Обретешь самоценность и навсегда забудешь о страхе зависимости в отношениях.</li>
+                <li>Разорвешь сценарии прошлого, чтобы освободиться от боли и родительских установок.</li>
+                <li>Примешь новый статус, сохранив свою уникальность и личные границы.</li>
+              </ul>
+              <div class="step-result">
+                ✦ Результат: Ты свободна от страхов и готова без опасений входить
+                в отношения с успешными мужчинами
+              </div>
+              <div class="step-signup">
+                <div class="step-signup-date">Старт — 25 марта 2026</div>
+                <div class="step-prices">
+                  
+                  <div class="step-price-row">
+                    <span class="step-price-name">Тариф Принцесса</span>
+                    <div class="step-price-right">
+                      <span class="price-old-small">35 000 ₽</span>
+                      <span class="step-price-val">25 000 ₽</span>
+                    </div>
+                  </div>
+              
+                  <div class="step-price-row">
+                    <span class="step-price-name">Тариф Королева</span>
+                    <div class="step-price-right">
+                      <span class="price-old-small">70 000 ₽</span>
+                      <span class="step-price-val">55 000 ₽</span>
+                    </div>
+                  </div>
+              
+                  <div class="step-price-row">
+                    <span class="step-price-name">Тариф Императрица</span>
+                    <div class="step-price-right">
+                      <span class="price-old-small">130 000 ₽</span>
+                      <span class="step-price-val">99 000 ₽</span>
+                    </div>
+                  </div>
+              
+                </div>
+                
+                <a href="#pricing" class="btn-primary" style="width: 100%; text-align: center; margin-top: 10px;">Посмотреть наполнение тарифов ♛</a>
+                <p class="price-valid-note-dark" style="text-align: center; margin-top: 8px;">* Скидка 30% действует до конца месяца</p>
+              </div>
+                <br />
+              
+            <div class="step-visual">
+              <div class="step-card-visual">
+                <div class="step-icon-area"><div class="s-icon-key"></div></div>
+                <div class="step-format">
+                  <strong>11 занятий</strong>
+                  5 живых встреч в Zoom<br />+ 6 медитаций в записи<br /><br />
+                  <em>2,5 часа</em><br />каждая встреча
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- СТУПЕНЬ 2 -->
+          <div class="step">
+            <div class="step-content">
+              <div class="step-tag">Ступень 2 · Самоценность</div>
+              <h3 class="step-title">Я выбираю <span>себя</span></h3>
+              <p class="step-desc">
+                Построим твою внутреннюю опору и уверенность. Научишься ставить
+                себя на первое место — и мужчина это оценит.
+              </p>
+              <ul class="step-list">
+                <li>Научишься выбирать свои интересы в любой ситуации, не чувствуя вины или страха.</li>
+                <li>Обретешь глубинную уверенность в своей красоте и ценности, которая не зависит от чужого мнения.</li>
+                <li>Начнешь легко принимать заботу, внимание и дорогие подарки как естественную часть своей жизни.</li>
+              </ul>
+              <div class="step-result">
+                ✦ Результат: Ты выстраиваешь отношения, где чувствуешь себя
+                защищённой, любимой и ценной
+              </div>
+              <div class="step-signup">
+                <div class="step-signup-coming">✦ Дата следующей ступени будет объявлена после старта первой
+                </div>
+              </div>
+            </div>
+            <div class="step-visual">
+              <div class="step-card-visual">
+                <div class="step-icon-area"><div class="s-icon-gem"></div></div>
+                <div class="step-format">
+                  <strong>11 занятий</strong>
+                  5 живых встреч в Zoom<br />+ 6 медитаций в записи<br /><br />
+                  <em>2,5 часа</em><br />каждая встреча
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- СТУПЕНЬ 3 -->
+          <div class="step">
+            <div class="step-content">
+              <div class="step-tag">Ступень 3 · Корона</div>
+              <h3 class="step-title">Королева <span>своей жизни</span></h3>
+              <p class="step-desc">
+                Ты становишься той, которая создаёт свою реальность. Царственная,
+                желанная, уверенная — и абсолютно свободная.
+              </p>
+              <ul class="step-list">
+                <li>Освоишь искусство дипломатии, чтобы элегантно выходить из конфликтов с выгодой для себя.</li>
+                <li>Гармонизируешь отношения с партнером и его окружением, сохраняя свои интересы и границы.</li>
+                <li>Создашь жизнь мечты, где ты одновременно царственная женщина и творец своей счастливой реальности.</li>
+              </ul>
+              <div class="step-result">
+                ✦ Результат: Ты творишь свою счастливую реальность и выходишь
+                победительницей из любых обстоятельств
+              </div>
+              <div class="step-signup">
+                <div class="step-signup-coming">
+                  ✦ Дата следующей ступени будет объявлена после старта второй
+                </div>
+              </div>
+            </div>
+            <div class="step-visual">
+              <div class="step-card-visual">
+                <div class="step-icon-area"><div class="s-icon-crown"></div></div>
+                <div class="step-format">
+                  <strong>11 занятий</strong>
+                  6 живых встреч в Zoom<br />+ 5 медитаций в записи<br /><br />
+                  <em>2,5 часа</em><br />каждая встреча
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- ПОСЛЕ ВСЕХ СТУПЕНЕЙ -->
+          <div class="after-steps">
+            <h3>После прохождения всех модулей</h3>
+            <p>
+              Ты будешь готова к каждому свиданию, к каждому повороту в отношениях.<br />
+              Ты будешь <strong>чувствовать</strong>, что делать —
+              и <strong>знать</strong>, как настроить нужное состояние.<br />
+              Без сомнений. Без страха. Просто — быть собой.
+            </p>
+          </div>
+    
+        </div>
+      </section>
+    
+      <!-- 8. ДО/ПОСЛЕ — визуализация трансформации -->
+      <section class="before-after-section">
+        <div class="before-after-container">
+          <p class="section-label">✦ Реальные трансформации ✦</p>
+          <h2 class="section-title" style="color: white;">Как меняется жизнь после программы</h2>
+          <p class="section-desc" style="color: rgba(255,255,255,0.5); margin-bottom: 60px;">
+            Это не просто теория. Это — результаты, которые ты видишь в зеркале, ощущаешь в теле и получаешь от мужчин
+          </p>
+    
+          <div class="ba-grid">
+            <!-- Трансформация 1 -->
+            <div class="ba-row">
+              <div class="ba-before">
+                <p>"На первом свидании с успешным мужчиной я сразу начинала оправдываться: откуда я, почему без мужа, чем занимаюсь. Чувствовала себя не на своём месте."</p>
+              </div>
+              <div class="ba-arrow">
+                <span class="ba-arrow-icon">→</span>
+              </div>
+              <div class="ba-after">
+                <p>Теперь я <strong>спокойно слушаю его рассказы</strong>, задаю вопросы о нём и элегантно уклоняюсь от допросов. Он считывает: она не просит моего одобрения. <strong>Она уже королева.</strong></p>
+              </div>
+            </div>
+    
+    
+    
+            <!-- Трансформация 5 -->
+            <div class="ba-row">
+              <div class="ba-before">
+                <p>"Я притягивала мужчин, которые 'любили' меня на словах, но ничего не делали. Обещания без действий. Годы впустую."</p>
+              </div>
+              <div class="ba-arrow">
+                <span class="ba-arrow-icon">→</span>
+              </div>
+              <div class="ba-after">
+                <p>Теперь я <strong>считываю мужчину за 5 минут</strong>. Вижу, кто действительно серьёзен, а кто просто играет. <strong>Я выбираю только тех, кто доказывает делами.</strong></p>
+              </div>
+            </div>
+          </div>
+    
+          <!-- CTA после трансформаций -->
+          <div class="ba-cta-wrap fade-in">
+            <h3 class="ba-cta-text">Эти изменения — не случайность.<br>Это результат работы на уровне нейронных связей.</h3>
+            <p class="ba-cta-sub">И ты можешь получить то же самое. Уже через 11 недель.</p>
+            <a href="#pricing" class="btn-primary">Выбрать тариф</a>
+          </div>
+    
+        </div>
+      </section>
+    
+      <!-- 9. ОТЗЫВЫ — социальное доказательство -->
+      <section class="testimonials-section" id="testimonials">
+        <div class="testimonials-container">
+          <p class="section-label">✦ Истории успеха ✦</p>
+          <h2 class="section-title">Они уже изменили свою жизнь</h2>
+          <p class="section-desc">Реальные отзывы клиенток из практики</p>
+          <div class="testimonials-track-wrap">
+            <div class="testimonials-track" id="testimonialsTrack">
+              <div class="testimonial-card">
+                <img src="https://i.ibb.co/ynB9PDbY/photo-5028772865683598413-y-1.jpg" alt="Отзыв 1" class="testimonial-screenshot" />
+                <div class="testimonial-info">
+                  <div class="testimonial-stars">★★★★★</div>
+                  <div class="testimonial-author">Анастасия, 34 года</div>
+                  <div class="testimonial-role">Перестала быть "роскошной инопланетянкой" — стала королевой на одной линии с партнёром.</div>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <img src="https://i.ibb.co/zWKHNJhw/photo-5059954607425433189-y-1.jpg" alt="Отзыв 2" class="testimonial-screenshot" />
+                <div class="testimonial-info">
+                  <div class="testimonial-stars">★★★★★</div>
+                  <div class="testimonial-author">Екатерина, 29 лет</div>
+                  <div class="testimonial-role">Через 3 сессии получила браслет за 13 000 €. Просто подняли её внутреннюю ценность.</div>
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <img src="https://i.ibb.co/nN3MzYV0/photo-4999268239951375900-y-1.jpg" alt="Отзыв 3" class="testimonial-screenshot" />
+                <div class="testimonial-info">
+                  <div class="testimonial-stars">★★★★★</div>
+                  <div class="testimonial-author">Мария, 31 год</div>
+                  <div class="testimonial-role">Вышла из токсичных отношений за 1 сессию — то, что не получилось за 2 года с психологом.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-nav">
+            <button class="carousel-btn" id="prevBtn">←</button>
+            <div class="carousel-dots" id="carouselDots"></div>
+            <button class="carousel-btn" id="nextBtn">→</button>
+          </div>
+        </div>
+      </section>
+    
+      <!-- 10. ТАРИФЫ — оффер -->
+      <section class="pricing-section" id="pricing">
+        <p class="section-label">✦ Инвестиция в себя ✦</p>
+        <h2 class="section-title">Выбери свой путь</h2>
+        <p class="section-desc">Ступень «Корона» стоит на 10 000 ₽ дороже в каждом тарифе</p>
+        <div class="pricing-grid fade-in">
+          <div class="pricing-card">
+            <div class="pricing-tier">Тариф Принцесса</div>
+            <div class="pricing-name">Погружение</div>
+            <div class="pricing-price-wrap">
+              <div class="pricing-price">25 000 <span style="font-size: 1.2rem">₽</span></div>
+            </div>
+            <div class="pricing-note">за одну ступень</div>
+            <div class="pricing-group">Группа 15–30 человек</div>
+            <div class="p-divider"></div>
+            <ul class="pricing-features">
+              <li>Все живые встречи в Zoom (по 2,5 часа)</li>
+              <li>Общий чат с поддержкой участниц</li>
+              <li>Все учебные материалы и медитации</li>
+              <li>Доступ к записям 6 месяцев</li>
+            </ul>
+            <a href="https://t.me/JuliaEnergopraktika" class="btn-secondary"
+              style="width: 100%; text-align: center; display: block">Начать</a>
+          </div>
+          <div class="pricing-card featured">
+            <div class="pricing-badge">⭐ Лучший выбор</div>
+            <div class="pricing-tier">Тариф Королева</div>
+            <div class="pricing-name">Трансформация</div>
+            <div class="pricing-price-wrap">
+              <div class="pricing-price">55 000 <span style="font-size: 1.2rem">₽</span></div>
+            </div>
+            <div class="pricing-note">за одну ступень</div>
+            <div class="pricing-group">Камерная группа 8–12 человек</div>
+            <div class="p-divider"></div>
+            <ul class="pricing-features">
+              <li>Все живые встречи в Zoom (по 2,5 часа)</li>
+              <li>Общий + VIP чат для глубоких вопросов</li>
+              <li>Личная консультация с автором (1,5 часа)</li>
+              <li>Все материалы и медитации</li>
+              <li>Доступ к записям 1 год</li>
+            </ul>
+            <a href="https://t.me/JuliaEnergopraktika" class="btn-primary"
+              style="width: 100%; text-align: center; display: block">Выбрать</a>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-tier">Тариф Императрица</div>
+            <div class="pricing-name">Реализация</div>
+            <div class="pricing-price-wrap">
+              <div class="pricing-price">99 000 <span style="font-size: 1.2rem">₽</span></div>
+            </div>
+            <div class="pricing-note">за одну ступень</div>
+            <div class="pricing-group">Эксклюзивная группа до 6 человек</div>
+            <div class="p-divider"></div>
+            <ul class="pricing-features">
+              <li>Всё из тарифа «Королева»</li>
+              <li>2 индивидуальные встречи (по 1,5 часа)</li>
+              <li>Беседа с женой миллиардера: вопрос-ответ (2 часа)</li>
+              <li>Интеграция женских энергий через нейрографику (2,5 часа)</li>
+              <li>Доступ к записям навсегда</li>
+            </ul>
+            <a href="https://t.me/JuliaEnergopraktika" class="btn-primary"
+              style="width: 100%; text-align: center; display: block">Хочу</a>
+          </div>
+        </div>
+      </section>
+    
+      <!-- 11. ЗАМУЖ ЗА МИЛЛИОНЕРА -->
+      <section style="background: var(--cream); padding: 60px 20px; text-align: center">
+        <div style="max-width: 700px; margin: 0 auto; padding: 45px 40px; border: 1px solid var(--gold-light);">
+          <p class="section-label">✦ Также у меня есть ✦</p>
+          <h2 class="section-title">«Замуж за миллионера»</h2>
+          <p class="section-desc" style="margin-bottom: 30px">
+            Интенсив на 123 дня с индивидуальным сопровождением — для максимально глубокой трансформации
+          </p>
+          <a href="zamuzh.html" class="btn-primary">Узнать подробнее →</a>
+        </div>
+      </section>
+    
+      <!-- 12. VIP -->
+      <section class="vip-section">
+        <p class="section-label">✦ Только для выпускниц ✦</p>
+        <div class="vip-box fade-in">
+          <div class="vip-label">★ Персональное сопровождение ★</div>
+          <h2 class="vip-title">Личная работа со мной</h2>
+          <p class="vip-desc">
+            Максимально индивидуальный формат для тех, кто хочет пройти
+            трансформацию с постоянной поддержкой эксперта
+          </p>
+          <div class="vip-features">
+            <div class="vip-feature">Еженедельные разборы твоих ситуаций</div>
+            <div class="vip-feature">Постоянная связь в Telegram</div>
+            <div class="vip-feature">Личные сессии 1,5 часа по 2 раза в месяц</div>
+            <div class="vip-feature">Доступно только выпускницам</div>
+          </div>
+          <div class="vip-price-wrap">
+            <div class="vip-price">150 000 ₽</div>
+          </div>
+          <div class="vip-dur">3 месяца персональной работы</div>
+          <a href="https://t.me/JuliaEnergopraktika" class="btn-secondary">Узнать подробнее</a>
+        </div>
+      </section>
+    
+      <section class="last-chance">
+        <div class="last-chance-inner">
+          <div class="section-label">Представь</div>
+          
+          <h2>Через год ты сидишь в ресторане <span>Мишлен</span></h2>
+          
+          <div class="last-chance-scene">
+            <p>
+              Рядом — мужчина, который боготворит тебя. Ты улыбаешься не от удивления, а от благодарности. 
+              Потому что <span>знаешь свою ценность</span>.
+            </p>
+          </div>
+          
+          <div class="last-chance-note">
+            Программа стартует <strong>25 марта</strong>. Количество мест ограничено.<br>
+            Цена действует до 15 марта — потом будет дороже.
+          </div>
+          
+          <a href="#tariffs" class="btn-primary">Начать трансформацию</a>
+        </div>
+      </section>
+    
+      <!-- 14. ФИНАЛЬНЫЙ CTA -->
+      <section class="final-cta" id="contact">
+        <h2>Ты уже готова. Осталось сделать шаг.</h2>
+        <p>
+          Запишись на консультацию — и через 11 недель ты станешь той,
+          которую выбирают миллионеры. Без жертв. Без потери себя. Навсегда.
+        </p>
+        <a href="https://t.me/JuliaEnergopraktika" class="btn-white">Записаться в Telegram ♛</a>
+      </section>
+    
+      <footer>
+        <p>© 2026 Программа <span>«Жена Миллионера»</span> · Все права защищены</p>
+      </footer>
+    
+      <script>
+        // INTERSECTION OBSERVER для анимаций
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) entry.target.classList.add("visible");
+            });
+          },
+          { threshold: 0.1 }
+        );
+        document.querySelectorAll(".fade-in, .step, .ba-row").forEach((el) => observer.observe(el));
+    
+        // SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        });
+    
+        // CAROUSEL отзывов
+        const track = document.getElementById("testimonialsTrack");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        const dotsContainer = document.getElementById("carouselDots");
+        const cards = document.querySelectorAll(".testimonial-card");
+    
+        let currentIndex = 0;
+        const totalSlides = cards.length;
+        let cardsPerView = window.innerWidth > 768 ? 3 : 1;
+    
+        function createDots() {
+          dotsContainer.innerHTML = "";
+          const totalDots = Math.ceil(totalSlides / cardsPerView);
+          for (let i = 0; i < totalDots; i++) {
+            const dot = document.createElement("button");
+            dot.classList.add("carousel-dot");
+            if (i === 0) dot.classList.add("active");
+            dot.addEventListener("click", () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+          }
+        }
+    
+        function goToSlide(index) {
+          currentIndex = index;
+          const offset = -(100 / cardsPerView) * index * cardsPerView;
+          track.style.transform = `translateX(${offset}%)`;
+          updateDots();
+        }
+    
+        function updateDots() {
+          const dots = document.querySelectorAll(".carousel-dot");
+          dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === Math.floor(currentIndex / cardsPerView));
+          });
+        }
+    
+        prevBtn.addEventListener("click", () => {
+          if (currentIndex > 0) goToSlide(currentIndex - 1);
+        });
+    
+        nextBtn.addEventListener("click", () => {
+          const maxIndex = Math.ceil(totalSlides / cardsPerView) - 1;
+          if (currentIndex < maxIndex * cardsPerView) goToSlide(currentIndex + 1);
+        });
+    
+        window.addEventListener("resize", () => {
+          const newCardsPerView = window.innerWidth > 768 ? 3 : 1;
+          if (newCardsPerView !== cardsPerView) {
+            cardsPerView = newCardsPerView;
+            currentIndex = 0;
+            createDots();
+            goToSlide(0);
+          }
+        });
+    
+        createDots();
+    
+        // ПЛАВАЮЩАЯ КНОПКА — появляется после скролла
+        const floatBtn = document.getElementById("floatBtn");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 600) {
+            floatBtn.classList.add("show");
+          } else {
+            floatBtn.classList.remove("show");
+          }
+        });
+      </script>
+    
+      </body>
+    </html>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
-
-    <section class="final-cta" id="contact">
-      <h2>Готова изменить свою жизнь?</h2>
-      <p>
-        Запишись на бесплатную консультацию — узнаешь, с какой ступени начать
-        именно тебе
-      </p>
-      <a href="https://t.me/JuliaEnergopraktika" class="btn-white"
-        >Записаться в Telegram ♛</a
-      >
-    </section>
-
-    <footer>
-      <p>
-        © 2026 Программа <span>«Жена Миллионера»</span> · Все права защищены
-      </p>
-    </footer>
-
-    <script>
-      // АНИМАЦИЯ ПРИ СКРОЛЛЕ
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) entry.target.classList.add("visible");
-          });
-        },
-        { threshold: 0.1 }
-      );
-      document.querySelectorAll(".fade-in, .step").forEach((el) => observer.observe(el));
-
-      // ПЛАВНАЯ ПРОКРУТКА
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
-      });
-
-      // КАРУСЕЛЬ ОТЗЫВОВ
-      const track = document.getElementById("testimonialsTrack");
-      const prevBtn = document.getElementById("prevBtn");
-      const nextBtn = document.getElementById("nextBtn");
-      const dotsContainer = document.getElementById("carouselDots");
-      const cards = document.querySelectorAll(".testimonial-card");
-      
-      let currentIndex = 0;
-      const totalSlides = cards.length;
-      let cardsPerView = window.innerWidth > 768 ? 3 : 1;
-
-      // Создать точки
-      function createDots() {
-        dotsContainer.innerHTML = "";
-        const totalDots = Math.ceil(totalSlides / cardsPerView);
-        for (let i = 0; i < totalDots; i++) {
-          const dot = document.createElement("button");
-          dot.classList.add("carousel-dot");
-          if (i === 0) dot.classList.add("active");
-          dot.addEventListener("click", () => goToSlide(i));
-          dotsContainer.appendChild(dot);
-        }
-      }
-
-      // Перейти к слайду
-      function goToSlide(index) {
-        currentIndex = index;
-        const offset = -(100 / cardsPerView) * index * cardsPerView;
-        track.style.transform = `translateX(${offset}%)`;
-        updateDots();
-      }
-
-      // Обновить точки
-      function updateDots() {
-        const dots = document.querySelectorAll(".carousel-dot");
-        dots.forEach((dot, i) => {
-          dot.classList.toggle("active", i === Math.floor(currentIndex / cardsPerView));
-        });
-      }
-
-      // Кнопки
-      prevBtn.addEventListener("click", () => {
-        if (currentIndex > 0) goToSlide(currentIndex - 1);
-      });
-
-      nextBtn.addEventListener("click", () => {
-        const maxIndex = Math.ceil(totalSlides / cardsPerView) - 1;
-        if (currentIndex < maxIndex * cardsPerView) goToSlide(currentIndex + 1);
-      });
-
-      // При изменении размера окна
-      window.addEventListener("resize", () => {
-        const newCardsPerView = window.innerWidth > 768 ? 3 : 1;
-        if (newCardsPerView !== cardsPerView) {
-          cardsPerView = newCardsPerView;
-          currentIndex = 0;
-          createDots();
-          goToSlide(0);
-        }
-      });
-
-      createDots();
-    </script>
   </body>
 </html>
